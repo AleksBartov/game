@@ -9,7 +9,7 @@
         "type": "image/png"
       }
     ],
-    "name": "Awesome fox pictures",
-    "short_name": "Foxes",
+    "name": "Awesome javascript game",
+    "short_name": "KukaGame",
     "start_url": "game/index.html"
   }
