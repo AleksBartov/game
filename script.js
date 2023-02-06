@@ -55,7 +55,7 @@ window.addEventListener('load', function() {
       this.game = game;
       this.collisionX = Math.random() * this.game.width;
       this.collisionY = Math.random() * this.game.height;
-      this.collisionRadius = 80;
+      this.collisionRadius = 10;
     }
 
     draw(context) {
@@ -75,7 +75,7 @@ window.addEventListener('load', function() {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.player = new Player(this);
-        this.numOfObstacles = 6;
+        this.numOfObstacles = 12;
         this.obstacles = [];
 
         this.mouse = {
@@ -108,8 +108,23 @@ window.addEventListener('load', function() {
     }
 
     init() {
-      for (let i = 0; i < this.numOfObstacles; i++) {
-        this.obstacles.push(new Obstacle(this));
+      let attempts = 0;
+      while(this.obstacles.length < this.numOfObstacles && attempts < 500) {
+        let newTestObstacle = new Obstacle(this);
+        let overlap = false;
+        this.obstacles.forEach(obstacle => {
+          const dx = newTestObstacle.collisionX - obstacle.collisionX;
+          const dy = newTestObstacle.collisionY - obstacle.collisionY;
+          const distance = Math.hypot(dy, dx);
+          const sumOfRadius = obstacle.collisionRadius + newTestObstacle.collisionRadius;
+          if (distance < sumOfRadius) {
+            overlap = true;
+          }
+        });
+        if (!overlap) {
+          this.obstacles.push(newTestObstacle);
+        }
+        attempts++;
       }
     }
   }
