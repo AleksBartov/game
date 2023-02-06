@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-    const margin = 50;
+    const margin = 30;
   const canvas = this.document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
   canvas.width = this.window.innerWidth - margin;
