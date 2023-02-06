@@ -11,5 +11,5 @@
     ],
     "name": "Awesome javascript game",
     "short_name": "KukaGame",
-    "start_url": "game/index.html"
+    "start_url": "/"
   }
