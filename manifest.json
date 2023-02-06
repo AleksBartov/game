@@ -1,7 +1,7 @@
 {
   "name": "KukaGame",
   "description": "best ever game",
-  "start_url": "/",
+  "start_url": "https://aleksbartov.github.io/game/index.html",
   "lang": "ru-RU",
   "theme_color": "#252525",
   "display": "fullscreen",
