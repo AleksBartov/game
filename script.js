@@ -1,4 +1,5 @@
 window.addEventListener('load', function() {
+  const goldenRatio = 16180;
     const margin = 30;
   const canvas = this.document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
@@ -59,8 +60,8 @@ window.addEventListener('load', function() {
       this.image = document.getElementById('obstacles');
       this.spriteWidth = 250;
       this.spriteHeight = 250;
-      this.width = this.spriteWidth/this.game.ratio;
-      this.height = this.spriteHeight/this.game.ratio;
+      this.width = this.spriteWidth*this.game.ratio;
+      this.height = this.spriteHeight*this.game.ratio;
       this.spriteX = this.collisionX - this.width * 0.5;
       this.spriteY = this.collisionY - this.height * 0.5 - 40;
     }
@@ -82,10 +83,10 @@ window.addEventListener('load', function() {
         this.canvas = canvas;
         this.width = this.canvas.width;
         this.height = this.canvas.height;
-        this.ratio = 2;
         this.player = new Player(this);
         this.numOfObstacles = 12;
         this.obstacles = [];
+        this.ratio = ((this.width+this.height)*2)/goldenRatio;
 
         this.mouse = {
           x: this.width * 0.5,
