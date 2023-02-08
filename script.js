@@ -59,8 +59,8 @@ window.addEventListener('load', function() {
       this.image = document.getElementById('obstacles');
       this.spriteWidth = 250;
       this.spriteHeight = 250;
-      this.width = this.spriteWidth/2;
-      this.height = this.spriteHeight/2;
+      this.width = this.spriteWidth/this.game.ratio;
+      this.height = this.spriteHeight/this.game.ratio;
       this.spriteX = this.collisionX - this.width * 0.5;
       this.spriteY = this.collisionY - this.height * 0.5 - 40;
     }
@@ -82,8 +82,9 @@ window.addEventListener('load', function() {
         this.canvas = canvas;
         this.width = this.canvas.width;
         this.height = this.canvas.height;
+        this.ratio = 2;
         this.player = new Player(this);
-        this.numOfObstacles = 6;
+        this.numOfObstacles = 12;
         this.obstacles = [];
 
         this.mouse = {
@@ -124,7 +125,8 @@ window.addEventListener('load', function() {
           const dx = newTestObstacle.collisionX - obstacle.collisionX;
           const dy = newTestObstacle.collisionY - obstacle.collisionY;
           const distance = Math.hypot(dy, dx);
-          const sumOfRadius = obstacle.collisionRadius + newTestObstacle.collisionRadius;
+          const bufferZone = 100;
+          const sumOfRadius = obstacle.collisionRadius + newTestObstacle.collisionRadius + bufferZone;
           if (distance < sumOfRadius) {
             overlap = true;
           }
