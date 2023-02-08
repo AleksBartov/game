@@ -14,3 +14,7 @@ body {
 #canvas1 {
     background-color: rgb(177, 166, 239);
 }
+
+#obstacles {
+    display: none;
+}
