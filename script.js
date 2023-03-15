@@ -18,7 +18,7 @@ addEventListener('load', function(e) {
    
 
 
-   words.slice(0,10).forEach((w, i) => {
+   words.forEach((w, i) => {
     const card = document.createElement('div');
     card.classList.add('card');
     const content = document.createElement('div');
