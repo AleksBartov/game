@@ -3,12 +3,12 @@
   "description": "best ever game",
   "start_url": "https://aleksbartov.github.io/game/index.html",
   "lang": "ru-RU",
-  "theme_color": "#252525",
+  "theme_color": "#01569e",
   "display": "fullscreen",
   "icons": [
     {
-      "src": "icon/joystick.png",
-      "sizes": "192x192",
+      "src": "icon/cardIcon.png",
+      "sizes": "128x128",
       "type": "image/png"
     }
   ]
