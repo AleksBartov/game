@@ -9,7 +9,7 @@ addEventListener('load', function(e) {
 
   recognition.onstart = () => {
     console.log("Распознавание голоса запущено");
-    alert('listening...');
+    // alert('listening...');
   };
 
   recognition.onend = () => {
@@ -18,7 +18,7 @@ addEventListener('load', function(e) {
 
   recognition.onstart();
 
-  let offsetX, offsetY, endX = 0;
+  let offsetX, offsetY, endX = 0, endListen = false;
  
   const box = document.querySelector('#box');
   const vowels = ['А', 'О', 'У', 'Я', 'И', 'Е'];
@@ -72,7 +72,10 @@ addEventListener('load', function(e) {
     });
     c.addEventListener('touchend', e => {
      e.preventDefault();
-     recognition.onend();
+     if(!endListen) {
+      recognition.onend();
+      endListen = true;
+     }
      c.style.transform = `rotateX(0deg) rotateZ(0deg) translateZ(150px) translateX(${endX > 0 ? 500 : -500}px) translateY(${e.changedTouches[0].screenY-offsetY}px)`;
     endX = 0;
 
