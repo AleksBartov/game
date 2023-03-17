@@ -1,4 +1,22 @@
 addEventListener('load', function(e) {
+
+  const speechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new speechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.maxAlternatives = 3;
+  recognition.lang = "ru-RU";
+
+  recognition.onstart = () => {
+    console.log("Распознавание голоса запущено");
+  };
+
+  recognition.onend = () => {
+    console.log("Распознавание голоса закончено");
+  };
+
+  recognition.onstart();
+
   let offsetX, offsetY, endX = 0;
  
   const box = document.querySelector('#box');
@@ -53,6 +71,7 @@ addEventListener('load', function(e) {
     });
     c.addEventListener('touchend', e => {
      e.preventDefault();
+     recognition.onend();
      c.style.transform = `rotateX(0deg) rotateZ(0deg) translateZ(150px) translateX(${endX > 0 ? 500 : -500}px) translateY(${e.changedTouches[0].screenY-offsetY}px)`;
     endX = 0;
 
