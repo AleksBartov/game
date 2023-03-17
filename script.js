@@ -9,6 +9,7 @@ addEventListener('load', function(e) {
 
   recognition.onstart = () => {
     console.log("Распознавание голоса запущено");
+    alert('listening...');
   };
 
   recognition.onend = () => {
