@@ -20,7 +20,7 @@ addEventListener('load', function(e) {
 
   */
 
-  recognition.onstart();
+  // recognition.onstart();
   
 
   let offsetX, offsetY, endX = 0, endListen = false;
