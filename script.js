@@ -18,9 +18,10 @@ addEventListener('load', function(e) {
     console.log("Распознавание голоса закончено");
   };
 
+  */
+
   recognition.onstart();
   
-  */
 
   let offsetX, offsetY, endX = 0, endListen = false;
  
