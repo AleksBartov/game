@@ -55,7 +55,7 @@ addEventListener('load', function(e) {
     card.classList.add('card');
     const content = document.createElement('div');
     content.classList.add('content');
-    content.innerHTML = `${w[0]}`;
+    content.innerHTML = `${w[3]}`;
     
  // ------transforming----------
     card.style.transform = `translateZ(${i*.1}px) rotateX(30deg) rotateZ(${Math.floor(Math.random()*24-12)}deg)`;
