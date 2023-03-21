@@ -31,7 +31,7 @@ addEventListener('load', function(e) {
 
   const words = consonants.flatMap(con=> {
     return vowels.map(l=> {
-      return `${con}${l}`
+      return `${con}${l}, ${l}${con}`
     })
   }).reduce((acc, l)=>{
      let random = Math.floor(Math.random()*acc.length);
