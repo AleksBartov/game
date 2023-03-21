@@ -37,17 +37,25 @@ addEventListener('load', function(e) {
      let random = Math.floor(Math.random()*acc.length);
      acc.splice(random, 0, l);
      return acc;
-  },[]); 
+  },[]).reduce((acc, l, i)=>{
+    const LENGTH = vowels.length*2;
+    const chunk = Math.floor(i/LENGTH);
+    if(!acc[chunk]){
+      acc[chunk] = [];
+    }
+    acc[chunk].push(l);
+    return acc;
+  },[]);
 
    
 
 
-   words.slice(0,24).forEach((w, i) => {
+   words.forEach((w, i) => {
     const card = document.createElement('div');
     card.classList.add('card');
     const content = document.createElement('div');
     content.classList.add('content');
-    content.innerHTML = `${w}`;
+    content.innerHTML = `${w[0]}`;
     
  // ------transforming----------
     card.style.transform = `translateZ(${i*.1}px) rotateX(30deg) rotateZ(${Math.floor(Math.random()*24-12)}deg)`;
