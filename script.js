@@ -26,7 +26,7 @@ addEventListener('load', function(e) {
   let offsetX, offsetY, endX = 0, endListen = false;
  
   const box = document.querySelector('#box');
-  const vowels = ['А', 'О', 'У', 'Я', 'И', 'Е'];
+  const vowels = ['А'];
   const consonants = ['Л','М', 'Н', 'Р', 'Б', 'П', 'В', 'С', 'К'];
 
   const words = consonants.flatMap(con=> {
